@@ -40,7 +40,7 @@ public class FilmManagerTest {
         manager.add(poster13);
         manager.add(poster14);
 
-        PosterItem[] actual = manager.getAll();
+        PosterItem[] actual = manager.limit();
         PosterItem[] expected = new PosterItem[]
                 {poster14, poster13, poster12, poster11, poster10, poster9, poster8, poster7, poster6, poster5};
 
@@ -58,7 +58,7 @@ public class FilmManagerTest {
         manager.add(poster2);
         manager.add(poster3);
 
-        PosterItem[] actual = manager.getAll();
+        PosterItem[] actual = manager.noLimit();
         PosterItem[] expected = new PosterItem[]{poster3, poster2, poster1};
 
         assertArrayEquals(expected, actual);

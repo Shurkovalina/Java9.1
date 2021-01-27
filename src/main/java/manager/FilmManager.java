@@ -15,23 +15,25 @@ public class FilmManager {
         items = tmp;
     }
 
-    //    список фильмов
-    public PosterItem[] getAll() {
-        if (items.length > 9) {
-            int a = items.length - 10;
-            PosterItem[] result = new PosterItem[items.length - a];
-            for (int i = 0; i < result.length; i++) {
-                int index = items.length - i - 1;
-                result[i] = items[index];
-            }
-            return result;
-        } else {
-            PosterItem[] result = new PosterItem[items.length];
-            for (int i = 0; i < result.length; i++) {
-                int index = items.length - i - 1;
-                result[i] = items[index];
-            }
-            return result;
+    //    список фильмов с лимитом
+    public PosterItem[] limit() {
+        int limit = 10; //выставляем лимит
+        int ost = items.length - limit; //считаем, сколько фильмов мы не добавляем
+        PosterItem[] result = new PosterItem[items.length - ost];
+        for (int i = 0; i < result.length; i++) {
+            int index = items.length - i - 1;
+            result[i] = items[index];
         }
+        return result;
+    }
+
+    //    список фильмов без лимита
+    public PosterItem[] noLimit() {
+        PosterItem[] result = new PosterItem[items.length];
+        for (int i = 0; i < result.length; i++) {
+            int index = items.length - i - 1;
+            result[i] = items[index];
+        }
+        return result;
     }
 }

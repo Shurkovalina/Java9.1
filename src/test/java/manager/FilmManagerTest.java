@@ -58,7 +58,7 @@ public class FilmManagerTest {
         manager.add(poster2);
         manager.add(poster3);
 
-        PosterItem[] actual = manager.noLimit();
+        PosterItem[] actual = manager.limit();
         PosterItem[] expected = new PosterItem[]{poster3, poster2, poster1};
 
         assertArrayEquals(expected, actual);
